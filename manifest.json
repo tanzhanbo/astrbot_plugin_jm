@@ -1,0 +1,9 @@
+{
+  "id": "jm",
+  "name": "JM Comic Downloader",
+  "version": "0.1.0",
+  "description": "使用 JMComic-Crawler-Python 下载本子",
+  "author": "Tsukimiya",
+  "usage": "/jm [本子id]",
+  "entry": "jm.py"
+}

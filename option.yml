@@ -1,0 +1,39 @@
+download:
+  image:
+    suffix: .jpg
+
+client:
+  impl: html
+
+  domain:
+    - 18comic-uc.vip
+    - 18comic-mhws.vip
+    - 18comic-uc.cc
+    - jmcomic-zzz.one
+    - jmcomic-zzz.org
+  retry_times: 5
+  postman:
+    meta_data:
+      # proxies: 代理配置，默认是 system，表示使用系统代理。
+      # 以下的写法都可以:
+      # proxies: null # 不使用代理
+      # proxies: clash
+      # proxies: v2ray
+      # proxies: 127.0.0.1:7890
+      # proxies:
+      #   http: 127.0.0.1:7890
+      #   https: 127.0.0.1:7890
+      proxies: null
+
+dir_rule:
+  base_dir: ./data/plugins/astrbot_plugin_jm/pictures
+
+plugins:
+  after_album:
+    # img2pdf也支持合并整个本子，把上方的after_photo改为after_album即可。
+    # https://github.com/hect0x7/JMComic-Crawler-Python/discussions/258
+    # 配置到after_album时，需要修改filename_rule参数，不能写Pxx只能写Axx示例如下
+    - plugin: img2pdf
+      kwargs:
+        pdf_dir: ./data/plugins/astrbot_plugin_jm/pdf # pdf存放文件夹
+        filename_rule: Aid # pdf命名规则，A代表album, name代表使用album.name也就是本子名称
