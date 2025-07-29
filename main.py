@@ -47,7 +47,7 @@ class JMDownloaderPlugin(Star):
                 yield event.plain_result(f"@{user_name} ✅ 下载完成，发送 PDF 文件：")
                 yield event.chain_result([File(name=f"{album_id}.pdf", file=pdf_path)])
             else:
-                yield event.plain_result(f"@{user_name} ❌ 本子 {album_id} 下载完成，但未找到 PDF 文件，请确认是否配置了 PDF 输出路径。")
+                yield event.plain_result(f"@{user_name} ❌ 本子 {album_id} 下载完成，但未找到 PDF 文件，请更换ID后重试。")
         except Exception as e:
             logger.error(f"@{user_name} 下载出错: {str(e)}")
             yield event.plain_result(f"@{user_name} ❌ 下载失败：{str(e)}")
